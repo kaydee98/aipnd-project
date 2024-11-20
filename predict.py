@@ -48,7 +48,19 @@ def process_image(image_path):
     Scales, crops, and normalizes a PIL image for a PyTorch model,
         returns a PyTorch tensor
     """
-    s
+    image = Image.open(image_path).convert("RGB")
+    # Resize and crop
+    image = image.resize((256, 256))
+    image = image.crop((16, 16, 240, 240))
+    # Normalize
+    np_image = np.array(image) / 255.0
+    mean = np.array([0.485, 0.456, 0.406])
+    std = np.array([0.229, 0.224, 0.225])
+    np_image = (np_image - mean) / std
+    np_image = np_image.transpose((2, 0, 1))
+
+    # Convert to a tensor
+    return torch.tensor(np_image, dtype=torch.float32).unsqueeze(0)
 
 def predict(image_path, model, top_k, device):
     """
