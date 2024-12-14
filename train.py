@@ -16,7 +16,7 @@ dataloaders = {}
 def get_input_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Train a new network on a dataset")
-    parser.add_argument("data_dir", type=str, help="Dataset directory")
+    parser.add_argument("--data_dir", type=str, help="Dataset directory")
     parser.add_argument("--save_dir", type=str, default="./", help="Directory to save checkpoints")
     parser.add_argument("--arch", type=str, default="vgg16", help="Architecture - vgg16 or vgg13")
     parser.add_argument("--learning_rate", type=float, default=0.001, help="Learning rate")
@@ -130,8 +130,6 @@ def train_model(model, optimizer, criterion, epochs, gpu):
     trainloader = dataloaders["train"]
     validloader = dataloaders["valid"]
 
-    print("Training started")
-
     device = torch.device("cuda" if gpu and torch.cuda.is_available() else "cpu")
     model.to(device)
 
@@ -159,8 +157,6 @@ def train_model(model, optimizer, criterion, epochs, gpu):
           f"Validation Loss: {val_loss:.3f}.. "
           f"Validation Accuracy: {val_accuracy*100:.2f}%")
 
-    print("Training complete")
-
     return
 
 def main():
@@ -184,7 +180,9 @@ def main():
     optimizer = optim.Adam(model.classifier.parameters(), lr=learning_rate)
 
     # Train model
+    print("Training started")
     train_model(model, optimizer, criterion, epochs, gpu)
+    print("Training complete")
 
     # Test the model
     print("Testing the model")
