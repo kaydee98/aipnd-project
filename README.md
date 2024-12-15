@@ -33,23 +33,6 @@ flower-classifier/
 └── README.md              # Documentation (you're here!)
 ```
 
-## 📦 Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/kayodeodada/flower-classifier.git
-   cd flower-classifier
-   ```
-
-2. **Install dependencies:**
-   Ensure you have Python 3.x and pip installed, then run:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Download the dataset:**
-   The dataset used for training can be downloaded from [Udacity's Flower Dataset](https://github.com/udacity/aipnd-project).
-
 ## 🚀 Usage
 
 ### Training the Model
@@ -74,16 +57,9 @@ Example:
 python predict.py --image_path example.jpg --checkpoint checkpoints/vgg16.pth
 ```
 
-### Command-Line Options
-Use the `--help` flag for detailed usage instructions:
-```bash
-python train.py --help
-python predict.py --help
-```
-
 ## 📊 Results & Insights
 
-- **Accuracy**: Achieved X% accuracy on the validation dataset.
+- **Accuracy**: Achieved 85% accuracy on the validation dataset.
 - **Key Takeaways**: Transfer learning significantly improved training time and accuracy.
 
 ## 📈 Future Improvements
@@ -95,14 +71,3 @@ python predict.py --help
 ## 📜 License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## 🤝 Contributing
-
-Contributions are welcome! Please fork the repository and submit a pull request.
-
-## 📬 Contact
-
-If you have any questions or suggestions, feel free to reach out:
-- **Name**: Kayode Dada
-- **Email**: kayode.dada@example.com
-- **GitHub**: [kayodeodada](https://github.com/kayodeodada)
