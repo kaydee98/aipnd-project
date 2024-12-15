@@ -3,6 +3,7 @@ Train a new network on a dataset and save the model as a checkpoint.
 """
 import argparse
 import os
+import sys
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -16,7 +17,8 @@ dataloaders = {}
 def get_input_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Train a new network on a dataset")
-    parser.add_argument("--data_dir", type=str, help="Dataset directory")
+    parser.add_argument("--data_dir", type=str, required=True,
+                         help="Dataset directory")
     parser.add_argument("--save_dir", type=str, default="./", help="Directory to save checkpoints")
     parser.add_argument("--arch", type=str, default="vgg16", help="Architecture - vgg16 or vgg13")
     parser.add_argument("--learning_rate", type=float, default=0.001, help="Learning rate")
@@ -162,6 +164,19 @@ def train_model(model, optimizer, criterion, epochs, gpu):
 def main():
     """Main function."""
     in_args = get_input_args()
+
+     # Error checking
+    if not os.path.isdir(in_args.data_dir):
+        print(f"Error: Data directory '{in_args.data_dir}' not found.")
+        sys.exit(1)
+
+    if not os.path.isdir(in_args.save_dir):
+        os.makedirs(in_args.save_dir)
+        print(f"Directory '{in_args.save_dir}' created for saving checkpoints.")
+
+    if in_args.epochs <= 0:
+        print("Error: Number of epochs must be greater than 0.")
+        sys.exit(1)
 
     # Load data
     load_data(in_args.data_dir)
