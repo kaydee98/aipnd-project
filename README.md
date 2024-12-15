@@ -26,6 +26,7 @@ This project was developed as part of the **AI Programming with Python Nanodegre
 ```
 flower-classifier/
 ├── cat_to_name.json       # Mapping of categories to flower names
+├── flower_image.jpeg      # Flower image used for testing the inference/prediction
 ├── predict.py             # CLI for making predictions
 ├── train.py               # CLI for training model
 ├── ImageClassifier.ipynb  # Jupyter Notebook with the project workflow
