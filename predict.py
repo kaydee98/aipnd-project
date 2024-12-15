@@ -2,6 +2,8 @@
 import argparse
 import json
 import torch
+import os
+import sys
 from PIL import Image
 import numpy as np
 from torchvision import models
@@ -11,8 +13,10 @@ from torchvision.models import VGG16_Weights, VGG13_Weights
 def get_input_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Predict flower name and class probability.")
-    parser.add_argument('--image_path', type=str, help="Path to the image file")
-    parser.add_argument('--checkpoint', type=str, help="Path to the model checkpoint")
+    parser.add_argument('--image_path', type=str, required=True,
+                         help="Path to the image file")
+    parser.add_argument('--checkpoint', type=str, required=True, 
+                        help="Path to the model checkpoint file")
     parser.add_argument('--top_k', type=int, default=5, help="Return top K most likely classes")
     parser.add_argument('--category_names', default='cat_to_name.json', type=str, help="Path to mapping JSON")
     parser.add_argument('--gpu', action='store_true', help="Use GPU for inference")
@@ -90,6 +94,15 @@ def predict(image_path, model, top_k, device):
 def main():
     """Main function."""
     args = get_input_args()
+
+    if not os.path.isfile(args.image_path):
+        print(f"Error: Image file '{args.image_path}' not found.")
+        sys.exit(1)
+
+    if not os.path.isfile(args.checkpoint):
+        print(f"Error: Checkpoint file '{args.checkpoint}' not found.")
+        sys.exit(1)
+
     device = torch.device("cuda" if args.gpu and torch.cuda.is_available() else "cpu")
 
     # Load model from checkpoint
