@@ -25,13 +25,17 @@ This project was developed as part of the **AI Programming with Python Nanodegre
 
 ```
 flower-classifier/
-├── checkpoint.pth         # Saved model weights
 ├── cat_to_name.json       # Mapping of categories to flower names
 ├── predict.py             # CLI for making predictions
-├── train.py               # Training script
+├── train.py               # CLI for training model
 ├── ImageClassifier.ipynb  # Jupyter Notebook with the project workflow
 └── README.md              # Documentation (you're here!)
 ```
+
+## Dataset
+We'll be using [this dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html) of 102 flower categories, you can see a few examples below. 
+
+<img src='assets/Flowers.png' width=500px>
 
 ## 🚀 Usage
 
