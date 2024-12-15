@@ -102,4 +102,3 @@ ENV/
 .mypy_cache/
 
 .github/**
-!model_checkpoint.pth
