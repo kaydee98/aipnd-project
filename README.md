@@ -33,7 +33,12 @@ flower-classifier/
 ```
 
 ## Dataset
-We'll be using [this dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html) of 102 flower categories, you can see a few examples below. 
+- I’ll be working with the [102 Category Flower Dataset](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html), which contains images of flowers from 102 unique categories.
+- The dataset should already be included with this notebook, but if it’s missing, it can be [downloaded here](https://s3.amazonaws.com/content.udacity-data.com/nd089/flower_data.tar.gz).
+
+ Below is an example from the dataset:
+
+<img src='assets/Flowers.png' width=500px>
 
 <img src='assets/Flowers.png' width=500px>
 
