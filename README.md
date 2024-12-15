@@ -41,8 +41,6 @@ flower-classifier/
 
 <img src='assets/Flowers.png' width=500px>
 
-<img src='assets/Flowers.png' width=500px>
-
 ## 🚀 Usage
 
 ### Training the Model
