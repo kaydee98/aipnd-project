@@ -1,9 +1,9 @@
 """ Class Prediction """
 import argparse
 import json
-import torch
 import os
 import sys
+import torch
 from PIL import Image
 import numpy as np
 from torchvision import models
