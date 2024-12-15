@@ -11,8 +11,8 @@ from torchvision.models import VGG16_Weights, VGG13_Weights
 def get_input_args():
     """Parse command line arguments."""
     parser = argparse.ArgumentParser(description="Predict flower name and class probability.")
-    parser.add_argument('image_path', type=str, help="Path to the image file")
-    parser.add_argument('checkpoint', type=str, help="Path to the model checkpoint")
+    parser.add_argument('--image_path', type=str, help="Path to the image file")
+    parser.add_argument('--checkpoint', type=str, help="Path to the model checkpoint")
     parser.add_argument('--top_k', type=int, default=5, help="Return top K most likely classes")
     parser.add_argument('--category_names', default='cat_to_name.json', type=str, help="Path to mapping JSON")
     parser.add_argument('--gpu', action='store_true', help="Use GPU for inference")
